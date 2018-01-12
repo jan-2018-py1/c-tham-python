@@ -36,4 +36,5 @@ x = 0
 z = len(a)
 for i in range(0,len(a)):
     x += a[i]
-print x / z
+print x / 
+
