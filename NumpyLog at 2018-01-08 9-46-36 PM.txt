@@ -1,0 +1,70 @@
+
+imac:requests wei$ clear
+imac:requests wei$ brew tap homebrew/science && brew install python numpy scipy matplotlib
+Warning: homebrew/science was deprecated. This tap is now empty as all its formulae were migrated.
+==> Tapping homebrew/science
+Cloning into '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-science'...
+remote: Counting objects: 9, done.
+remote: Compressing objects: 100% (9/9), done.
+remote: Total 9 (delta 0), reused 4 (delta 0), pack-reused 0
+Unpacking objects: 100% (9/9), done.
+Tapped 0 formulae (37 files, 30.1KB)
+Error: No available formula with the name "matplotlib"
+==> Searching for a previously deleted formula (in the last month)...
+Warning: homebrew/core is shallow clone. To get complete history run:
+  git -C "$(brew --repo homebrew/core)" fetch --unshallow
+
+Error: No previously deleted formula found.
+==> Searching for similarly named formulae...
+==> Searching local taps...
+Error: No similarly named formulae found.
+==> Searching taps...
+==> Searching taps on GitHub...
+Error: No formulae found in taps.
+imac:requests wei$ python
+Python 2.7.10 (default, Oct 23 2015, 19:19:21)
+[GCC 4.2.1 Compatible Apple LLVM 7.0.0 (clang-700.0.59.5)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import numpy as np
+>>> a = np.arange(15).reshape(3, 5)
+>>> a
+array([[ 0,  1,  2,  3,  4],
+       [ 5,  6,  7,  8,  9],
+       [10, 11, 12, 13, 14]])
+>>> a.shape
+(3, 5)
+>>> a.ndim
+2
+>>> a.dtype.name
+'int64'
+>>> a.itemsize
+8
+>>> a.size
+15
+>>> type(a)
+<type 'numpy.ndarray'>
+>>> b = np.array([6,7,8])
+>>> b
+array([6, 7, 8])
+>>> type(b)
+<type 'numpy.ndarray'>
+>>> import matplotlib.pyplot as plt
+>>>
+>>> def mandelbrot( h,w, maxit=20 ):
+...     """Returns an image of the Mandelbrot fractal of size (h,w)."""
+...     y,x = np.ogrid[ -1.4:1.4:h*1j, -2:0.8:w*1j ]
+...     c = x+y*1j
+...     z = c
+...     divtime = maxit + np.zeros(z.shape, dtype=int)
+...     for i in range(maxit):
+...         z = z**2 + c
+...         diverge = z*np.conj(z) > 2**2            # who is diverging
+...         div_now = diverge & (divtime==maxit)  # who is diverging now
+...         divtime[div_now] = i                  # note when
+...         z[diverge] = 2                        # avoid diverging too much
+...     return divtime
+...
+>>> plt.imshow(mandelbrot(400,400))
+<matplotlib.image.AxesImage object at 0x10b0e60d0>
+>>> plt.show()
+>>>
