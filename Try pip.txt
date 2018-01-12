@@ -1,0 +1,45 @@
+
+
+
+(1)
+pip install Django
+
+>>answer - 
+Django 2.0 released on Dec 2, 2017
+Django 2.0 supports Python 3.4, 3.5, and 3.6. We highly recommend and only officially support the latest release of each series.
+The Django 1.11.x series is the last to support Python 2.7.
+FYI - https://docs.djangoproject.com/en/2.0/releases/2.0/
+
+(2)
+pip list
+
+(3)
+pip install Django (We know you already ran this one. What information do you see returned in terminal after this command?)
+
+>>answer - pip check the requirements and if already installed, it will stop.
+
+(4)
+pip freeze (What's the difference between freeze and list?)
+
+>>answer - 
+freeze - Output installed packages in requirements format.
+list - List installed packages.
+
+(5)
+First cd into your Desktop directory (cd ~/Desktop), then run this command: pip freeze > requirements.txt. What do you see when you ls? What's inside this file?
+
+>>answer - when I typed ls, i saw the file requirements.txt is created on my desktop. The file contain the "pip freeze" information.
+
+
+(6)
+pip uninstall Django
+
+
+(7)
+pip show Django
+
+
+(8)
+pip search Flask. This one might take a moment to execute.
+
+>>answer - the pip search the entire python with the key word - flask.
